@@ -20,6 +20,16 @@ class usuarioModelo{
         $objBaseDatos=null;
     }
 
+    function listarUsuario(){
+        $objBaseDatos= new Conexion();
+        $res=$objBaseDatos->prepare("call pa_usuario('','','','','listar')");
+        $res->execute();
+        return $res;
+        $objBaseDatos=null;
+    }
+
+
+
 
 
 }
