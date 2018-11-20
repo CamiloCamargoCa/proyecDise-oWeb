@@ -18,7 +18,15 @@ class usuarioControlador {
         echo(json_encode($datos)); 
 	}
 
+    function modificarUsu($usuario,$password,$tipousuario,$id){
+        $objModelo=new usuarioModelo();
+        $res=$objModelo->editarUsuario($usuario,$password,$tipousuario,$id);  
+    }
 
+    function eliminaUsu($id){
+        $objModelo=new usuarioModelo();
+        $res=$objModelo->eliminarUsuario($id);  
+    }
 
 }
 
