@@ -28,6 +28,15 @@ class usuarioControlador {
         $res=$objModelo->eliminarUsuario($id);  
     }
 
+     function validarUsu($usuario,$password){
+        $objModelo=new usuarioModelo();
+        $res=$objModelo->loginUsuario($usuario,$password);
+        $datos=$res->fetchAll();
+        foreach ($res as $row) {
+        $datos[]=$row;
+        }
+        echo(json_encode($datos)); 
+    }
 }
 
 ?>
