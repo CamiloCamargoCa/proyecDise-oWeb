@@ -1,5 +1,5 @@
 <?php 
-include '../Modelos/usuarioModelo.php';
+include '../../Modelos/productoModelo.php';
 
 class productoControlador {
 
@@ -10,7 +10,7 @@ class productoControlador {
 
     function listarPro(){
         $objModelo=new productoModelo();
-        $res=$objModelo->listarproducto();
+        $res=$objModelo->listarProducto();
         $datos=$res->fetchAll();
         foreach ($res as $row) {
         $datos[]=$row;

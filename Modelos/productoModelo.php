@@ -1,7 +1,7 @@
 <?php 
 include 'conexionbd.php';
 
-class usuarioProducto{
+class productoModelo{
 
     private $id;
     private $nombre;
@@ -14,7 +14,7 @@ class usuarioProducto{
         $this->nombre = $nombre;
         $this->precio = $precio;
         $this->descripcion = $descripcion;
-        $res=$objBaseDatos->prepare("call pa_producto('','$this->nombre','$this->precio','$this->descripcion','nuevo')");
+        $res=$objBaseDatos->prepare("call pa_productos('','$this->nombre','$this->precio','$this->descripcion','nuevo')");
         $res->execute();
         return $res;
         $res->closeCursor(); // this is not even required
@@ -24,7 +24,7 @@ class usuarioProducto{
 
     function listarProducto(){
         $objBaseDatos= new Conexion();
-        $res=$objBaseDatos->prepare("call pa_producto('','','','','listar')");
+        $res=$objBaseDatos->prepare("call pa_productos('','','','','listar')");
         $res->execute();
         return $res;
         $res->closeCursor(); // this is not even required
@@ -38,7 +38,7 @@ class usuarioProducto{
         $this->nombre = $nombre;
         $this->precio = $precio;
         $this->descripcion = $descripcion;
-        $res=$objBaseDatos->prepare("call pa_producto('$this->id','$this->nombre','$this->precio','$this->descripcion','editar')");
+        $res=$objBaseDatos->prepare("call pa_productos('$this->id','$this->nombre','$this->precio','$this->descripcion','editar')");
         $res->execute();
         return $res;
         $res->closeCursor(); // this is not even required
@@ -50,7 +50,7 @@ class usuarioProducto{
         $objBaseDatos= new Conexion();
         $this->id = $id;
         
-        $res=$objBaseDatos->prepare("call pa_producto('$this->id','','','','eliminar')");
+        $res=$objBaseDatos->prepare("call pa_productos('$this->id','','','','eliminar')");
         $res->execute();
         return $res;
         $res->closeCursor(); // this is not even required

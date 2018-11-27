@@ -1,7 +1,7 @@
 <?php 
 
 
-include '../../controladores/productoControlador.php';
+include '../../Controladores/productoControlador.php';
 
 
     $objLogin=new productoControlador();
